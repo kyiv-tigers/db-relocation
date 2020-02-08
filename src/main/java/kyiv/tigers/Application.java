@@ -4,6 +4,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import java.util.logging.Logger;
 
 @SpringBootApplication
 public class Application {
@@ -12,6 +15,14 @@ public class Application {
         SpringApplicationBuilder app = new SpringApplicationBuilder(Application.class).web(WebApplicationType.NONE);
         ApplicationContext context = app.run(args);
         OrganizationService organizationService = context.getBean(OrganizationService.class);
-        organizationService.start();
+        //organizationService.start();
+
+        PlanService planService = context.getBean(PlanService.class);
+        TenderService tenderService = context.getBean(TenderService.class);
+        AwardService awardService = context.getBean(AwardService.class);
+
+
+        planService.setNext(tenderService).setNext(awardService);
+        planService.start();
     }
 }

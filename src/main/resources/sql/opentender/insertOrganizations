@@ -1,10 +1,9 @@
 insert into organization(name, name_ru, name_en, identifier_scheme, identifier_code, identifier_legal_name,
-                         identifier_legal_name_ru, identifier_legal_name_en, bank_account,
-                         bank_name, bank_mfo, is_vat_tax_payer, country_registration_id, country_id, country_name,
+                         identifier_legal_name_ru, identifier_legal_name_en, is_vat_tax_payer, country_registration_id, country_id, country_name,
                          region_id, region_name, locality_id, locality_name, street_address, postal_code, kind,
                          scale)
 values (:name , :name_ru, :name_en, :identifier_scheme, :identifier_code, :identifier_legal_name,
-        :identifier_legal_name_ru, :identifier_legal_name_en, :bank_account, :bank_name, :bank_mfo, null,
+        :identifier_legal_name_ru, :identifier_legal_name_en, null,
         country_add(:country_code, :country_name),
         country_add(:country_code, :country_name), :country_name,
         region_add(country_add(:country_code, :country_name),

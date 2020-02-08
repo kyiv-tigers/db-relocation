@@ -1,0 +1,2 @@
+insert into organization_identifier(organization_id, scheme, code, legal_name, legal_name_ru, legal_name_en)
+values (:organization_id, :scheme, :code, :legal_name, :legal_name_ru, :legal_name_en);

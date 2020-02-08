@@ -1,0 +1,2 @@
+insert into organization_contact_point(organization_id, name, name_ru, name_en, email, phone)
+values (:organization_id, :name, :name_ru, :name_en, :email, :phone)

@@ -6,6 +6,7 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import javax.sql.DataSource;
 
@@ -19,8 +20,8 @@ public class PersistenceConfiguration {
     }
 
     @Bean(name = "publicbidJdbcTemplate")
-    public JdbcTemplate jdbcTemplate(@Qualifier("publicbidDB") DataSource dsPublicbid) {
-        return new JdbcTemplate(dsPublicbid);
+    public NamedParameterJdbcTemplate jdbcTemplate(@Qualifier("publicbidDB") DataSource dsPublicbid) {
+        return new NamedParameterJdbcTemplate(dsPublicbid);
     }
 
     @Bean(name = "opentenderDB")
@@ -30,8 +31,8 @@ public class PersistenceConfiguration {
     }
 
     @Bean(name = "opentenderJdbcTemplate")
-    public JdbcTemplate postgresJdbcTemplate(@Qualifier("opentenderDB")
+    public NamedParameterJdbcTemplate postgresJdbcTemplate(@Qualifier("opentenderDB")
                                                      DataSource dsOpentender) {
-        return new JdbcTemplate(dsOpentender);
+        return new NamedParameterJdbcTemplate(dsOpentender);
     }
 }

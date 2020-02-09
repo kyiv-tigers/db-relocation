@@ -17,12 +17,19 @@ public class Application {
         OrganizationService organizationService = context.getBean(OrganizationService.class);
         //organizationService.start();
 
+        TruncateService truncateService = context.getBean(TruncateService.class);
         PlanService planService = context.getBean(PlanService.class);
         TenderService tenderService = context.getBean(TenderService.class);
         AwardService awardService = context.getBean(AwardService.class);
+        ContractService contractService = context.getBean(ContractService.class);
 
 
-        planService.setNext(tenderService).setNext(awardService);
-        planService.start();
+        truncateService
+                .setNext(planService)
+                .setNext(tenderService)
+                .setNext(awardService)
+                .setNext(contractService);
+
+        truncateService.start();
     }
 }

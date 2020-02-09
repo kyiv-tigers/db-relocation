@@ -99,7 +99,7 @@ public class TenderService implements Importer{
         int generatedId = (Integer) keyHolder.getKeyList().get(0).get("id");
         return new MapSqlParameterSource()
                 .addValue("opentender_id", generatedId)
-                .addValue("id_cbd", value.get("tender_id"));
+                .addValue("id_cbd", value.get("opid"));
     }
 
     private int updateValue(SqlParameterSource data){
@@ -137,8 +137,4 @@ public class TenderService implements Importer{
             return false;
         }
     }
-
-
-
-
 }

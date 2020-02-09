@@ -98,7 +98,7 @@ public class PlanService implements Importer{
         int generatedId = (Integer) keyHolder.getKeyList().get(0).get("id");
         return new MapSqlParameterSource()
                 .addValue("opentender_id", generatedId)
-                .addValue("id_cbd", value.get("plan_id"));
+                .addValue("id_cbd", value.get("opid"));
     }
 
     private int updateValue(SqlParameterSource data){

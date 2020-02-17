@@ -1,0 +1,2 @@
+INSERT INTO agreement_test(tender_id, opid, agreement_id, user_id, token, transfer_token, user_date_modified)
+ VALUES (:tender_id, :opid, :agreement_id, :user_id, :token, :transfer_token, :user_date_modified);

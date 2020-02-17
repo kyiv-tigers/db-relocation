@@ -22,13 +22,14 @@ public class Application {
         TenderService tenderService = context.getBean(TenderService.class);
         AwardService awardService = context.getBean(AwardService.class);
         ContractService contractService = context.getBean(ContractService.class);
-
+        AgreementService agreementService = context.getBean(AgreementService.class);
 
         truncateService
                 .setNext(planService)
                 .setNext(tenderService)
                 .setNext(awardService)
-                .setNext(contractService);
+                .setNext(contractService)
+                .setNext(agreementService);
 
         truncateService.start();
     }

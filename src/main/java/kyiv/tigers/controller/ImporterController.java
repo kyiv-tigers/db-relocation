@@ -18,7 +18,6 @@ import java.util.UUID;
 public class ImporterController {
 
     private Importer chain;
-    private OrganizationService organizationService;
 
     @Autowired
     public ImporterController(@Qualifier("chain") Importer chain){
@@ -26,10 +25,10 @@ public class ImporterController {
     }
 
     @PostMapping(path = "/")
-    public void importOrganization(String email) {
-        UUID organizationID = organizationService.getOrganizationIdByUserEmail(email)
-                .orElseThrow(NullPointerException::new);
+    public void importOrganization(UUID organizationID) {
         chain.start(organizationID);
     }
+
+
 
 }

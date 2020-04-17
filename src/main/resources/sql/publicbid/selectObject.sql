@@ -1,5 +1,4 @@
-select obj.id                                                  as id,
-       json_extract_path_text(obj.name::json, 'ua'::text)      as name,
+select json_extract_path_text(obj.name::json, 'ua'::text)      as name,
        json_extract_path_text(obj.name::json, 'ru'::text)      as name_ru,
        json_extract_path_text(obj.name::json, 'en'::text)      as name_en,
        obj.c_state_r                                           as identifier_scheme,
@@ -20,4 +19,4 @@ from bd00.t_bd00_objects obj
          left join etalon.e_state obj_state on obj.c_state = obj_state.c_state
          left join etalon.e_regions obj_region on obj.c_reg = obj_region.c_reg
          left join etalon.e_territ obj_territ on obj.c_territ = obj_territ.c_territ
-where obj_state.lang = 'ua' and obj_region.lang = 'ua' and obj_territ.lang = 'ua';
+where obj_state.lang = 'ua' and obj_region.lang = 'ua' and obj_territ.lang = 'ua' and obj.id = :id;

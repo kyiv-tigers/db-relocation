@@ -26,7 +26,8 @@ public class OrganizationService implements Importer{
     private static final String INSERT_ORGANIZATION_CONTACT_POINT = stringFromFile("sql/opentender/insertOrganizationContactPoint");
     private static final String SELECT_OBJECT_BANK = stringFromFile("sql/publicbid/selectObjectBankAccount.sql");
     private static final String UPDATE_ORGANIZATION_BANK_ACCOUNT = stringFromFile("sql/opentender/updateOrganizationBankAccount.sql");
-
+    private static final String SELECT_USER_SUBSCRIPTIONS = stringFromFile("sql/publicbid/selectUserSubscriptions.sql");
+    private static final String INSERT_USER_SUBSCRIPTIONS = stringFromFile("sql/opentender/insertUserSubscriptions.sql");
 
 
     private final NamedParameterJdbcTemplate publicbidJdbcTemplate;
@@ -46,7 +47,7 @@ public class OrganizationService implements Importer{
         return next;
     }
 
-    public boolean start(){
+    public boolean start(UUID organizationID){
         try{
             List<Map<String, Object>> objects = publicbidJdbcTemplate.queryForList(SELECT_OBJECTS, new MapSqlParameterSource());
             objects.forEach(m -> {
@@ -128,7 +129,7 @@ public class OrganizationService implements Importer{
             });
 
             if(next != null){
-                return next.start();
+                return next.start(organizationID);
             }
 
             return true;

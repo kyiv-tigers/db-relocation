@@ -1,5 +1,7 @@
 package kyiv.tigers;
 
+import java.util.UUID;
+
 /**
  * @author Roman Malyarchuk
  * @project db-relocation
@@ -7,5 +9,5 @@ package kyiv.tigers;
  */
 public interface Importer {
     Importer setNext(Importer next);
-    boolean start();
+    boolean start(UUID organizationID);
 }

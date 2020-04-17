@@ -9,10 +9,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.logging.Logger;
 
 import static kyiv.tigers.FileToString.stringFromFile;
@@ -76,7 +73,7 @@ public class AwardService implements Importer{
         return opentenderJdbcTemplate.batchUpdate(INSERT_DATA, data);
     }
 
-    public boolean start(){
+    public boolean start(UUID organizationID){
         List<Map<String, Object>> values;
         int page = 0;
         int allUpdated = 0;
@@ -95,7 +92,7 @@ public class AwardService implements Importer{
             logger.info("Time elapsed: " + (end - start)/1000.0 + "s");
 
             if(next != null){
-                return next.start();
+                return next.start(organizationID);
             }
 
             return true;

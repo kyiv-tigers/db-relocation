@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 import static kyiv.tigers.FileToString.stringFromFile;
@@ -57,7 +58,7 @@ public class TruncateService implements Importer{
         opentenderJdbcTemplate.getJdbcTemplate().execute(TRUNCATE_ALL);
     }
 
-    public boolean start(){
+    public boolean start(UUID organizationID){
 
         try{
 
@@ -79,7 +80,7 @@ public class TruncateService implements Importer{
             }
 
             if(next != null){
-                return next.start();
+                return next.start(organizationID);
             }
 
             return true;

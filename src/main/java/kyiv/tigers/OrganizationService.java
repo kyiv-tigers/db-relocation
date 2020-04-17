@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 import static kyiv.tigers.FileToString.stringFromFile;
@@ -138,5 +139,9 @@ public class OrganizationService implements Importer{
             ex.printStackTrace();
             return false;
         }
+    }
+
+    public Optional<UUID> getOrganizationIdByUserEmail(String email){
+        return Optional.empty();
     }
 }

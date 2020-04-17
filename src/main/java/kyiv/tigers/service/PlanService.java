@@ -1,11 +1,9 @@
-package kyiv.tigers;
+package kyiv.tigers.service;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -16,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.logging.Logger;
 
-import static kyiv.tigers.FileToString.stringFromFile;
+import static kyiv.tigers.utils.FileToString.stringFromFile;
 
 /**
  * @author Roman Malyarchuk

@@ -1,4 +1,4 @@
-package kyiv.tigers;
+package kyiv.tigers.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;

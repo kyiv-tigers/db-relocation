@@ -1,4 +1,4 @@
-package kyiv.tigers;
+package kyiv.tigers.service;
 
 import java.util.UUID;
 

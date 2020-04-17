@@ -1,5 +1,8 @@
-package kyiv.tigers;
+package kyiv.tigers.config;
 
+import kyiv.tigers.service.Importer;
+import kyiv.tigers.service.OrganizationService;
+import kyiv.tigers.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

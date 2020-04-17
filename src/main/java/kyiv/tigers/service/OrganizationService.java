@@ -1,8 +1,6 @@
-package kyiv.tigers;
+package kyiv.tigers.service;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Import;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -14,7 +12,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
-import static kyiv.tigers.FileToString.stringFromFile;
+import static kyiv.tigers.utils.FileToString.stringFromFile;
 
 @Service
 public class OrganizationService implements Importer{
